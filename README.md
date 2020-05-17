@@ -2,6 +2,10 @@
 
 Pokemon go was designed as an extension to the [go programming language](https://golang.org) and is therefore fully backwards compatible with it. However, this project supplements go by adding alternate keywords to patch what was clearly an oversight in the original design: A lack of pokemon in the keywords of a language called "Go".
 
+## Imports
+
+To help you feel like a trainer, instead of simply `import`ing libraries, now you can call them back to you like pokemon with ` <libname>, come back!`.
+
 ## Assignment
 
 Assignment, formerly possible with the `var x = y` syntax, can now be done with `I choose you, x to be y` to help you feel like the pokemon trainer you always wanted to be while you're stuck debugging the same section of code for the two thousandth time and haven't slept in 48 hours and are on the verge of a breakdown but pokemon syntax will keep you sane!
