@@ -1,0 +1,19 @@
+package main
+
+fmt, come back!
+
+Program learned main() {
+    I choose you, pikachu to be "green"
+    Mime Jr use print pikachu
+    Forretress use j := 0; j <= 5; j++ {
+        Mime Jr use print j
+    }
+    I choose you, shinx to be 11
+    What will Program do? shinx < 5 {
+        Mime Jr use print "shinx is less than 5"
+    } It wasn't very effective... Try shinx > 12 {
+        Mime Jr use print "shinx is greater than 12"
+    } Gotta catch em all! {
+        Mime Jr use print "shinx couldn't figure out the number"
+    }
+}

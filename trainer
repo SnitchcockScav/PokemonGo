@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+if ARGV.length == 0
+  puts "Try running `trainer lets go <program_name>`"
+  exit
+end
+
+def compile_file(filename)
+  contents = File.read(filename)
+  subs = [
+    [%r{Mime Jr use print (.*)}, "fmt.Println(\\1)"],
+    [%r{^(\w*), come back!}, "import \"\\1\""],
+    [%r{^Program learned (\w*)\((.*)\)\s*\{}, "func \\1(\\2) {"],
+    [%r{I choose you, (\w*) to be (.*)$}, "var \\1 = \\2"],
+    [%r{Forretress use (.*)$}, "for \\1"],
+    [%r{What will Program do\? (.*)$}, "if \\1"],
+    [%r{\} It wasn't very effective... Try (.*)$}, "} else if \\1"],
+    [%r[\} Gotta catch em all! \{], "} else {"]
+  ]
+  contents = contents.split("\n").map do |line|
+    l = line
+    lchange = false
+    subs.each do |reg, rep|
+      if reg.match(line) && !lchange
+        lchange = true
+        l = line.gsub(reg, rep)
+      end
+    end
+    l
+  end.join("\n")
+  File.write("out.go", contents)
+  return "out.go"
+end
+
+if ARGV[0..1] == ["lets", "go"]
+  outfile = compile_file ARGV[2]
+  print `go run #{outfile}`
+end
